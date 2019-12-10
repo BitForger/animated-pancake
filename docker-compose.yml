@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mongo:
+    image: 'mongo'
+    volumes:
+    - ./data/db:/data/db
+    ports:
+    - 27017:27017
+
+  api:
+    build: .
+    command: "yarn run start:dev"
+    env_file: .env
+    volumes:
+      - "./:/var/www/app"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
