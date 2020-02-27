@@ -1,4 +1,4 @@
-import { model, Model, Schema } from 'mongoose';
+import { Schema, Document } from 'mongoose';
 
 export class Message {
   message: string;
@@ -10,7 +10,7 @@ export class Message {
   }
 }
 
-export interface IMessage extends Document, Message {
+export interface IMessage extends Message, Document {
 }
 
 export const MessageSchema = new Schema({

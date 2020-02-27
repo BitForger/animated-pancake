@@ -1,13 +1,17 @@
 version: '3'
 services:
   mongo:
+    container_name: sc_mongo
     image: 'mongo'
-    volumes:
-    - ./data/db:/data/db
     ports:
     - 27017:27017
-
+#  postgres:
+#    container_name: sc_postgres
+#    image: 'postgres'
+#    ports:
+#    - "5432:5432"
   api:
+    container_name: sc_api
     build: .
     command: "yarn run start:dev"
     env_file: .env

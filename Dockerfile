@@ -1,7 +1,5 @@
 FROM node:latest
 
-RUN npm install -g yarn
-
 COPY package* ./
 COPY tsconfig* ./
 
